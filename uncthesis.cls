@@ -58,7 +58,7 @@
   bookmarksopen=true,
 ]{hyperref}
 \RequirePackage{bookmark}
-\RequirePackage[acronym,sort=def]{glossaries}
+\RequirePackage[acronym]{glossaries}
 \glsdisablehyper
 \makenoidxglossaries
 \RequirePackage[
@@ -339,7 +339,6 @@
   \thispagestyle{plain}%
   \phantomsection
   \addcontentsline{toc}{chapter}{LIST OF ABBREVIATIONS}%
-  \vspace*{\dimexpr 1in - \headheight\relax}%
   {\centering \textbf{LIST OF ABBREVIATIONS}\par}%
   \vspace{\baselineskip}%
   \begingroup
