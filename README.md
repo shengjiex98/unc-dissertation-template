@@ -13,10 +13,10 @@ Tested on [TeX Live 2026](https://www.tug.org/texlive/) and [Overleaf](https://w
 
 ## Files
 
-- [`thesis.tex`](thesis.tex): the main document you edit
-- [`uncthesis.cls`](uncthesis.cls): the class that implements the formatting defaults
-- [`thesis.bib`](thesis.bib): your bibliography database
-- [`mimosis-bibliography.tex`](mimosis-bibliography.tex) and [`mimosis-english.lbx`](mimosis-english.lbx): optional bibliography tweaks
+- [`thesis.tex`](template/thesis.tex): the main document you edit
+- [`uncthesis.cls`](template/uncthesis.cls): the class that implements the formatting defaults
+- [`thesis.bib`](template/thesis.bib): your bibliography database
+- [`mimosis-bibliography.tex`](template/mimosis-bibliography.tex) and [`mimosis-english.lbx`](template/mimosis-english.lbx): optional bibliography tweaks
 
 ## Quick Start
 
