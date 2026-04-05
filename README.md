@@ -6,8 +6,7 @@ I (mostly [Claude](https://code.claude.com/docs/en/overview)) built this because
 
 The template is based on KOMA-Script and provides a small custom class, [`uncthesis.cls`](/Users/jerry/Papers/unc-dissertation-template/uncthesis.cls), plus a single example document in [`thesis.tex`](/Users/jerry/Papers/unc-dissertation-template/thesis.tex). The goal is to keep the user-facing boilerplate as close to zero as possible.
 
-It is intended to conform to the UNC Graduate School Thesis and Dissertation Guide:
-<https://gradweb.unc.edu/content/academics/thesis-diss/guide/>
+It is intended to conform to the [UNC Graduate School Thesis and Dissertation Guide](https://gradweb.unc.edu/content/academics/thesis-diss/guide/).
 
 Tested on [TeX Live 2026](https://www.tug.org/texlive/) and [Overleaf](https://www.overleaf.com/).
 
