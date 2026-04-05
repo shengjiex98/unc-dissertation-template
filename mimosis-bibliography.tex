@@ -1,0 +1,156 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Bibliography style adjustments (derived from the mimosis template).
+%% These are optional — remove this file or the \InputIfFileExists line
+%% in your document to revert to plain biblatex numeric style.
+%%
+%%  - Remove month field from bibliography entries
+%%  - Fix the Oxford comma in author lists
+%%  - Suppress "in" prefix for journal articles
+%%  - Remove parentheses around the year in articles
+%%  - Delimit volume and issue with ":" instead of "."
+%%  - Separate publisher, location, date with commas
+%%  - Spell out "technical report" (via mimosis-english.lbx)
+%%  - Display bibliography labels without brackets
+%%  - Non-breaking space after DOI prefix
+%%  - Hair spaces between author initials
+%%  - Slightly smaller citation font
+%%  - Superscript ordinal suffixes (1st, 2nd, 3rd, ...)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Remove the month field — journals use inconsistent issue/month schemes.
+\AtEveryBibitem{\clearfield{month}}
+\AtEveryCitekey{\clearfield{month}}
+
+% Fix the Oxford comma in author lists.
+\AtBeginBibliography{%
+  \renewcommand*{\finalnamedelim}{%
+    \ifthenelse{\value{listcount} > 2}{%
+      \addcomma
+      \addspace
+      \bibstring{and}%
+    }{%
+      \addspace
+      \bibstring{and}%
+    }
+  }
+}
+
+% Suppress "in" for journal articles (the italic journal title is
+% sufficient to distinguish the container).
+\renewbibmacro{in:}{%
+  \ifentrytype{article}
+  {%
+  }%
+  % else
+  {%
+    \printtext{\bibstring{in}\intitlepunct}%
+  }%
+}
+
+% Remove the parentheses around the year in articles for a cleaner look.
+\renewbibmacro*{issue+date}{%
+  \setunit{\addcomma\space}
+  \iffieldundef{issue}
+  {\usebibmacro{date}}
+  {\printfield{issue}%
+    \setunit*{\addspace}%
+  \usebibmacro{date}}%
+\newunit}
+
+% Delimit volume and issue number with a colon instead of a dot.
+\renewbibmacro*{volume+number+eid}{%
+  \printfield{volume}%
+  \setunit*{\addcolon}%
+  \printfield{number}%
+  \setunit{\addcomma\space}%
+  \printfield{eid}%
+}
+
+% Separate publisher, location, and date with commas (no colon).
+\renewbibmacro*{publisher+location+date}{%
+  \printlist{publisher}%
+  \setunit*{\addcomma\space}%
+  \printlist{location}%
+  \setunit*{\addcomma\space}%
+  \usebibmacro{date}%
+  \newunit%
+}
+
+% Same for organization-based entries (proceedings, etc.).
+\renewbibmacro*{organization+location+date}{%
+  \printlist{location}%
+  \setunit*{\addcomma\space}%
+  \printlist{organization}%
+  \setunit*{\addcomma\space}%
+  \usebibmacro{date}%
+  \newunit%
+}
+
+% Display bibliography labels without brackets (e.g. "1." not "[1]").
+\DeclareFieldFormat{labelnumberwidth}{#1\adddot}
+
+% Non-breaking space after the DOI prefix.
+\DeclareFieldFormat{doi}{%
+  \mkbibacro{DOI}\addcolon\addnbspace
+  \ifhyperref
+  {\href{http://dx.doi.org/#1}{\nolinkurl{#1}}}
+  %
+  {\nolinkurl{#1}}
+}
+
+% Hair spaces between author initials (Bringhurst convention).
+\renewcommand*\bibinitdelim {\addnbthinspace}
+\renewcommand*\bibnamedelima{\addnbthinspace}
+\renewcommand*\bibnamedelimb{\addnbthinspace}
+\renewcommand*\bibnamedelimi{\addnbthinspace}
+
+% Slightly smaller citation font. Remove if your chosen font already
+% has compact numerals.
+\RequirePackage{relsize}
+\renewcommand*{\citesetup}{%
+  \biburlsetup
+  \relsize{-.5}%
+}
+
+\DeclareLanguageMapping{english}{mimosis-english}
+
+% Extend hyperlinks to cover the author name in \textcite.
+
+\DeclareFieldFormat{citehyperref}{%
+  \DeclareFieldAlias{bibhyperref}{noformat}%  % avoid nested links
+  \bibhyperref{#1}%
+}
+
+\DeclareFieldFormat{textcitehyperref}{%
+  \DeclareFieldAlias{bibhyperref}{noformat}%  % avoid nested links
+  \bibhyperref{%
+    #1%
+    \ifbool{cbx:parens}
+    {\bibcloseparen\global\boolfalse{cbx:parens}}
+    {}%
+  }%
+}
+
+\savebibmacro{cite}
+\savebibmacro{textcite}
+
+\renewbibmacro*{cite}{%
+  \printtext[citehyperref]{%
+    \restorebibmacro{cite}%
+  \usebibmacro{cite}}%
+}
+
+\renewbibmacro*{textcite}{%
+  \ifboolexpr{
+    ( not test {\iffieldundef{prenote}} and
+    test {\ifnumequal{\value{citecount}}{1}} )
+    or
+    ( not test {\iffieldundef{postnote}} and
+    test {\ifnumequal{\value{citecount}}{\value{citetotal}}} )
+  }%
+  {\DeclareFieldAlias{textcitehyperref}{noformat}}
+  {}%
+  \printtext[textcitehyperref]{%
+    \restorebibmacro{textcite}%
+  \usebibmacro{textcite}}%
+}

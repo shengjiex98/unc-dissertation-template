@@ -1,0 +1,107 @@
+\documentclass[12pt]{uncthesis}
+
+%% ── Metadata ──────────────────────────────────────────────────────
+%% Fill in your details below. All fields are required except \school
+%% and \degree, which default to "the College of Arts and Sciences"
+%% and "Doctor of Philosophy" respectively.
+\title{Thesis Title}
+\author{Student Name}
+\advisor{Advisor Name}
+\department{Department Name}
+\school{School Name}
+\degree{Degree Name}
+\gradyear{20XX}
+\committee{%
+  \member{Advisor Name}%
+  \member{Committee Member One}%
+  \member{Committee Member Two}%
+  \member{Committee Member Three}%
+  \member{Committee Member Four}%
+}
+
+%% ── Bibliography ──────────────────────────────────────────────────
+%% Optional: load mimosis-bibliography.tex for cleaner bibliography
+%% formatting (Oxford comma, volume:issue, hair-space initials, etc.).
+%% Remove the next line if you prefer the default biblatex numeric style.
+\InputIfFileExists{mimosis-bibliography.tex}{}{}
+%% Add your .bib files here. You can have more than one.
+\addbibresource{thesis.bib}
+
+%% ── Abbreviations ─────────────────────────────────────────────────
+%% Define acronyms with \newacronym{label}{SHORT}{Long Form}.
+%% Use \gls{label} in text for automatic expansion on first use.
+%% Remove the examples below and add your own; remove the
+%% \makelistofabbreviations call in the front matter if not needed.
+\newacronym{unc}{UNC}{University of North Carolina}
+\newacronym{pdf}{PDF}{Portable Document Format}
+
+\begin{document}
+
+%% ── Front matter ──────────────────────────────────────────────────
+%% Pages are numbered with Roman numerals (ii, iii, ...).
+%% The title page counts as page i but its number is not printed.
+%% Comment out or remove any optional sections you don't need.
+\frontmatter
+
+\maketitlepage
+\makecopyrightpage
+
+\begin{uncabstract}
+  Replace this abstract with a concise summary of your thesis problem,
+  methods, and results. The Graduate School limits abstracts to 350 words.
+\end{uncabstract}
+
+%% Dedication and acknowledgments are optional.
+\begin{uncdedication}
+  Optional dedication text goes here.
+\end{uncdedication}
+
+\begin{uncacknowledgments}
+  Optional acknowledgments go here.
+\end{uncacknowledgments}
+
+% \begin{uncpreface}
+%   Optional preface goes here.
+% \end{uncpreface}
+
+%% Table of contents depth: 1 = sections, 2 = subsections, etc.
+\setcounter{tocdepth}{1}
+\tableofcontents
+\listoftables
+\listoffigures
+\makelistofabbreviations
+
+%% ── Main matter ───────────────────────────────────────────────────
+%% Pages switch to Arabic numerals starting at 1.
+%% Add your chapters below, or use \input{chapters/...} to keep each
+%% chapter in its own file.
+\mainmatter
+
+\chapter{Introduction}
+
+\section{How to use}
+
+This document is a minimal starting point for a \gls{unc} thesis or
+dissertation. Replace the metadata, front matter, and chapter text with
+your own content. The official university formatting guide is a useful
+reference when you need to verify submission requirements
+\cite{unc-dissertation-guide}.
+
+The bibliography setup in this template is intentionally small. It uses
+BibLaTeX with a lightweight style derived from the mimosis template
+\cite{mimosis-template}. Add your own entries to \texttt{thesis.bib}
+and cite them in the usual way.
+
+\chapter{Placeholder Chapter}
+
+Use this chapter as a stub for your actual material. Add sections,
+figures, tables, equations, and references as needed. If you use a
+\gls{pdf} figure, place it in your project tree and include it with
+\verb|\includegraphics|.
+
+%% ── Back matter ───────────────────────────────────────────────────
+\backmatter
+
+\printbibliography
+
+\end{document}
