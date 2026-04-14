@@ -355,14 +355,14 @@
 \makeatother
 
 %% ── Bibliography ───────────────────────────────────────────────────
-%% UNC: "REFERENCES" heading ALL CAPS centered; single-spaced within
+%% UNC: "BIBLIOGRAPHY" heading ALL CAPS centered; single-spaced within
 %% entries, double-spaced between entries. Deferred until biblatex loads.
 \makeatletter
 \AtEndPreamble{%
   \@ifpackageloaded{biblatex}{%
     \defbibheading{bibliography}[\bibname]{%
-      \chapter*{REFERENCES}%
-      \addcontentsline{toc}{chapter}{REFERENCES}%
+      \chapter*{BIBLIOGRAPHY}%
+      \addcontentsline{toc}{chapter}{BIBLIOGRAPHY}%
     }%
     \AtBeginBibliography{%
       \singlespacing
