@@ -89,6 +89,12 @@
 % Display bibliography labels without brackets (e.g. "1." not "[1]").
 \DeclareFieldFormat{labelnumberwidth}{#1\adddot}
 
+% Allow URLs to break at almost any character to avoid overfull lines
+% in the bibliography. Lower penalties = more willing to break.
+\setcounter{biburlnumpenalty}{100}
+\setcounter{biburlucpenalty}{100}
+\setcounter{biburllcpenalty}{100}
+
 % Non-breaking space after the DOI prefix.
 \DeclareFieldFormat{doi}{%
   \mkbibacro{DOI}\addcolon\addnbspace
