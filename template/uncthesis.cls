@@ -317,16 +317,31 @@
 }
 \makeatother
 
+\BeforeTOCHead[toc]{%
+  %% Subtract tocbasic's 10pt \addvspace inserted before the first
+  %% chapter-level TOC entry so the total gap equals one double-spaced line.
+  \renewcommand*{\chapterheadendvskip}{%
+    \vspace{\dimexpr\baselineskip-10pt\relax}}%
+}
+
 \BeforeTOCHead[lof]{%
   \clearpage
   \thispagestyle{plain}%
   \renewcommand*{\chapterheadstartvskip}{}%
+  %% Subtract tocbasic's 10pt \addvspace inserted before the first
+  %% chapter-level TOC entry so the total gap equals one double-spaced line.
+  \renewcommand*{\chapterheadendvskip}{%
+    \vspace{\dimexpr\baselineskip-10pt\relax}}%
 }
 
 \BeforeTOCHead[lot]{%
   \clearpage
   \thispagestyle{plain}%
   \renewcommand*{\chapterheadstartvskip}{}%
+  %% Subtract tocbasic's 10pt \addvspace inserted before the first
+  %% chapter-level TOC entry so the total gap equals one double-spaced line.
+  \renewcommand*{\chapterheadendvskip}{%
+    \vspace{\dimexpr\baselineskip-10pt\relax}}%
 }
 
 %% ── List of Abbreviations ──────────────────────────────────────────
@@ -340,7 +355,7 @@
   \phantomsection
   \addcontentsline{toc}{chapter}{LIST OF ABBREVIATIONS}%
   {\centering \textbf{LIST OF ABBREVIATIONS}\par}%
-  \vspace{\baselineskip}%
+  \vspace{0.5\baselineskip}%
   \begingroup
   \renewcommand{\glossarysection}[2][]{}%
   \printnoidxglossary[
