@@ -305,12 +305,19 @@
 }
 
 \makeatletter
+\newcommand*{\unc@chaptertocformat}[2]{%
+  \ifstrempty{#1}{%
+    \MakeUppercase{#2}%
+  }{%
+    CHAPTER~#1:\enskip \MakeUppercase{#2}%
+  }%
+}
 \renewcommand*{\addchaptertocentry}[2]{%
-  \addtocentrydefault{chapter}{#1}{\MakeUppercase{#2}}%
+  \addtocentrydefault{chapter}{}{\unc@chaptertocformat{#1}{#2}}%
   \if@chaptertolists
   \doforeachtocfile{%
     \Iftocfeature{\@currext}{chapteratlist}{%
-      \addxcontentsline{\@currext}{chapteratlist}[{#1}]{\MakeUppercase{#2}}%
+      \addxcontentsline{\@currext}{chapteratlist}[{}]{\unc@chaptertocformat{#1}{#2}}%
     }{}%
   }%
   \fi
