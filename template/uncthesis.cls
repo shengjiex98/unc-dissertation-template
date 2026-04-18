@@ -91,6 +91,7 @@
 %% ── Spacing ────────────────────────────────────────────────────────
 %% UNC: double-spaced throughout; single-space block quotes, captions,
 %% footnotes, and bibliography entries.
+\RequirePackage{indentfirst}
 \RequirePackage{setspace}
 \doublespacing
 \setlength{\parindent}{0.5in}
