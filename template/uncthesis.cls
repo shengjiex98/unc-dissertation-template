@@ -209,7 +209,7 @@
   {\centering
     \singlespacing
     \textcopyright{} \unc@year\\
-    \MakeUppercase{\@author}\\
+    \@author\\
     ALL RIGHTS RESERVED\par
   }%
   \vspace{1in}%
