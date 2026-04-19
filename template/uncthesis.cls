@@ -384,8 +384,11 @@
 \AtEndPreamble{%
   \@ifpackageloaded{biblatex}{%
     \defbibheading{bibliography}[\bibname]{%
-      \chapter*{BIBLIOGRAPHY}%
+      \clearpage
+      \thispagestyle{plain}%
+      \phantomsection
       \addcontentsline{toc}{chapter}{BIBLIOGRAPHY}%
+      {\centering \textbf{BIBLIOGRAPHY}\par}%
     }%
     \AtBeginBibliography{%
       \singlespacing
