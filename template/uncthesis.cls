@@ -390,10 +390,8 @@
       \addcontentsline{toc}{chapter}{BIBLIOGRAPHY}%
       {\centering \textbf{BIBLIOGRAPHY}\par}%
     }%
-    \AtBeginBibliography{%
-      \singlespacing
-      \setlength{\bibitemsep}{\baselineskip}%
-    }%
+    \setlength{\bibitemsep}{2\itemsep}%
+    \AtBeginBibliography{\singlespacing}%
   }{}%
   \@ifpackageloaded{caption}{%
     \captionsetup{font={singlespacing}}%
