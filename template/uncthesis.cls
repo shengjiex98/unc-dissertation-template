@@ -96,6 +96,10 @@
 \doublespacing
 \setlength{\parindent}{0.5in}
 
+%% Save double spacing length for manual adjustments
+\newlength{\doublelinespace}
+\setlength{\doublelinespace}{\baselineskip}
+
 \AtBeginEnvironment{quote}{
 \begin{singlespace}}
   \AtEndEnvironment{quote}{
@@ -356,6 +360,21 @@
 %% Uses \makenoidxglossaries / \printnoidxglossary so no external
 %% makeglossaries/makeindex run is needed.  Mirrors the LoF/LoT
 %% pattern so the TOC hyperlink lands at the top of the page.
+%% UNC: single-space within entry, double-space between entries.
+%% 1in-wide abbreviation column; description wraps with matching hang.
+\newglossarystyle{singlespaced-list}{%
+  \renewenvironment{theglossary}%
+  {\leftskip=1in \rightskip=1in}%
+  {\par}%
+  \renewcommand*{\glossaryheader}{}%
+  \renewcommand*{\glsgroupheading}[1]{}%
+  \renewcommand*{\glsgroupskip}{}%
+  \renewcommand*{\glossentry}[2]{%
+    \noindent\hangindent=1in \hangafter=1
+    \makebox[1in][l]{\glstarget{##1}{\glossentryname{##1}}}%
+    \glossentrydesc{##1}##2\par\vspace{\dimexpr\doublelinespace-\baselineskip\relax}%
+  }%
+}
 \makeatletter
 \newcommand{\makelistofabbreviations}{%
   \clearpage
@@ -363,15 +382,17 @@
   \phantomsection
   \addcontentsline{toc}{chapter}{LIST OF ABBREVIATIONS}%
   {\centering \textbf{LIST OF ABBREVIATIONS}\par}%
-  \vspace{0.5\baselineskip}%
+  \vspace{\baselineskip}%
   \begingroup
   \renewcommand{\glossarysection}[2][]{}%
-  \printnoidxglossary[
-    type=\acronymtype,
-    style=long,
-    nonumberlist,
-    nogroupskip
-  ]%
+  \begin{singlespace}
+    \printnoidxglossary[
+      type=\acronymtype,
+      style=singlespaced-list,
+      nonumberlist,
+      nogroupskip
+    ]%
+  \end{singlespace}
   \endgroup
   \clearpage
 }
