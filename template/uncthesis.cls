@@ -5,7 +5,7 @@
 %% Thesis and Dissertation Guide. Based on KOMA-Script scrbook.
 %%
 %% Usage:
-%%   \documentclass[12pt]{uncthesis}
+%%   \documentclass[11pt]{uncthesis}
 %%   \title{...}  \author{...}  \advisor{...}
 %%   \department{...}  \school{...}  \degree{...}  \gradyear{...}
 %%   \committee{\member{First Last}\member{First Last}...}
@@ -330,30 +330,27 @@
 \makeatother
 
 \BeforeTOCHead[toc]{%
-  %% Subtract tocbasic's 10pt \addvspace inserted before the first
-  %% chapter-level TOC entry so the total gap equals one double-spaced line.
+  %% Subtract tocbasic's 10pt \addvspace inserted before the first entry
   \renewcommand*{\chapterheadendvskip}{%
-    \vspace{\dimexpr\baselineskip-10pt\relax}}%
+  \vspace{\dimexpr\baselineskip-10pt\relax}}%
 }
 
 \BeforeTOCHead[lof]{%
   \clearpage
   \thispagestyle{plain}%
   \renewcommand*{\chapterheadstartvskip}{}%
-  %% Subtract tocbasic's 10pt \addvspace inserted before the first
-  %% chapter-level TOC entry so the total gap equals one double-spaced line.
+  %% Subtract tocbasic's 10pt \addvspace inserted before the first entry
   \renewcommand*{\chapterheadendvskip}{%
-    \vspace{\dimexpr\baselineskip-10pt\relax}}%
+  \vspace{\dimexpr\baselineskip-10pt\relax}}%
 }
 
 \BeforeTOCHead[lot]{%
   \clearpage
   \thispagestyle{plain}%
   \renewcommand*{\chapterheadstartvskip}{}%
-  %% Subtract tocbasic's 10pt \addvspace inserted before the first
-  %% chapter-level TOC entry so the total gap equals one double-spaced line.
+  %% Subtract tocbasic's 10pt \addvspace inserted before the first entry
   \renewcommand*{\chapterheadendvskip}{%
-    \vspace{\dimexpr\baselineskip-10pt\relax}}%
+  \vspace{\dimexpr\baselineskip-10pt\relax}}%
 }
 
 %% ── List of Abbreviations ──────────────────────────────────────────
