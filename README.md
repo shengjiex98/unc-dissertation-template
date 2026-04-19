@@ -1,12 +1,10 @@
 # UNC Dissertation Template
 
-A minimal LaTeX template for UNC Chapel Hill dissertations and theses.
-
-I (mostly [Claude](https://code.claude.com/docs/en/overview)) built this because I wanted the smallest possible setup that still handled all the formatting requirements. This is largely similar to the other templates out there and is nothing special, but if you are a minimalist or have OCD, the setup of this template will hopefully make you very happy.
+A minimal LaTeX template conforming to the [UNC Graduate School Thesis and Dissertation Guide](https://gradweb.unc.edu/content/academics/thesis-diss/guide/)
 
 The template is based on KOMA-Script and provides a small custom class, [`uncthesis.cls`](template/uncthesis.cls), plus a single example document in [`thesis.tex`](template/thesis.tex). The goal is to keep the user-facing boilerplate as close to zero as possible.
 
-It is intended to conform to the [UNC Graduate School Thesis and Dissertation Guide](https://gradweb.unc.edu/content/academics/thesis-diss/guide/).
+I (mostly [Claude](https://code.claude.com/docs/en/overview)) built this because I wanted the smallest possible setup that still handled all the formatting requirements. This is largely similar to the other templates out there and is nothing special, but if you are a minimalist or have OCD, the setup of this template will hopefully make you very happy.
 
 Tested on [TeX Live 2026](https://www.tug.org/texlive/) and [Overleaf](https://www.overleaf.com/).
 
