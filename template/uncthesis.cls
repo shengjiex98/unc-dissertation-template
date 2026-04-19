@@ -134,7 +134,7 @@
 \renewcommand*{\chapterheadendvskip}{\vspace{\baselineskip}}
 
 \renewcommand*{\chapterformat}{%
-  \mbox{\MakeUppercase{\chaptername}\nobreakspace\thechapter:\enskip}%
+  \mbox{\MakeUppercase{\chaptername}~\thechapter: }%
 }
 \renewcommand{\chapterlinesformat}[3]{%
   #2#3%
@@ -314,7 +314,7 @@
   \ifstrempty{#1}{%
     \MakeUppercase{#2}%
   }{%
-    CHAPTER~#1:\enskip \MakeUppercase{#2}%
+    CHAPTER~#1: \MakeUppercase{#2}%
   }%
 }
 \renewcommand*{\addchaptertocentry}[2]{%
