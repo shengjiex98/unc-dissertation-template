@@ -1,10 +1,8 @@
 # UNC Dissertation Template
 
-A minimal LaTeX template conforming to the [UNC Graduate School Thesis and Dissertation Guide](https://gradweb.unc.edu/content/academics/thesis-diss/guide/) based on [KOMA-Script](https://ctan.org/pkg/koma-script).
+A minimal LaTeX template conforming to the [UNC Graduate School Thesis and Dissertation Guide](https://gradweb.unc.edu/content/academics/thesis-diss/guide/) based on [KOMA-Script](https://ctan.org/pkg/koma-script). My dissertation is accepted by the Graduate School in April 2026 using this tempalte.
 
-All of the Graduate School's formatting rules — margins, spacing, title page layout, TOC conventions, and the rest — are encoded in the class file, so you should not need to hand-tune any formatting yourself. The goal is to keep the user-facing boilerplate as close to zero as possible: fill in your metadata, write your content, and compile.
-
-I (mostly [Claude](https://code.claude.com/docs/en/overview)) built this because I wanted the smallest possible setup that still handled all the formatting requirements. This is largely similar to the other templates out there and is nothing special, but if you are a minimalist or have OCD, the setup of this template will hopefully make you very happy.
+All of the Graduate School's formatting rules are encoded in the class file, so you should not need to hand-tune any formatting yourself. The goal is to keep the user-facing boilerplate as close to zero as possible.
 
 Tested on [TeX Live 2026](https://www.tug.org/texlive/) and [Overleaf](https://www.overleaf.com/).
 
@@ -13,7 +11,7 @@ Tested on [TeX Live 2026](https://www.tug.org/texlive/) and [Overleaf](https://w
 - [`thesis.tex`](template/thesis.tex): the main document you edit
 - [`thesis.bib`](template/thesis.bib): your bibliography database
 - [`uncthesis.cls`](template/uncthesis.cls): the class that implements the formatting defaults
-- [`mimosis-bibliography.tex`](template/mimosis-bibliography.tex) and [`mimosis-english.lbx`](template/mimosis-english.lbx): optional bibliography tweaks
+- [`mimosis-bibliography.tex`](template/mimosis-bibliography.tex) and [`mimosis-english.lbx`](template/mimosis-english.lbx): optional bibliography tweaks inspired by [latex-mimosis](https://github.com/Pseudomanifold/latex-mimosis)
 
 ## Quick Start
 
